@@ -1,4 +1,5 @@
 ﻿/// <reference path="../../../scripts/typings/leaflet/leaflet.d.ts" />
+/// <reference path="typings/leaflet/leaflet.tileLayer.ts" />
 module app {
     "use strict";
     interface IDemographicsLayersService {
