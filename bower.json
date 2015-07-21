@@ -1,0 +1,21 @@
+{
+  "name": "mrtest2",
+  "version": "0.0.0",
+  "homepage": "https://github.com/michaelregister/mrtest2",
+  "authors": [
+    "michaelregister <michael@innovocative.com>"
+  ],
+  "description": "demo",
+  "keywords": [
+    "demo",
+    "mrtest2"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
