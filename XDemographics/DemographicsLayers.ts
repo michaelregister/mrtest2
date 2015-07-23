@@ -14,7 +14,7 @@ module app {
         constructor() {
             console.log("DemographicsLayers constructor");
         }
-        templateUrl: string = "/app/Features/Demographics/demographicsLayers.html";
+        templateUrl: string = "~/../bower_components/mrtest2/XDemographics/demographicsLayers.html";
         controller = ["$scope", "demographicsLayersService", "$http", "leafletData",
             function ($scope: IdemographicsLayersScope, DemographicsLayersService: DemographicsLayersService,
                 $http: ng.IHttpService, leafletData: any) {
@@ -54,5 +54,5 @@ module app {
         }
     }
 
-    angular.module("app").directive("demographicslayers", () => DemographicsLayers.getInstance());
+    angular.module(NameSpace).directive("demographicslayers", () => DemographicsLayers.getInstance());
 } 

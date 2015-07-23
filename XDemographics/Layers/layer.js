@@ -6,7 +6,7 @@ var app;
     var Layer = (function () {
         function Layer() {
             this.restrict = "E";
-            this.templateUrl = "/app/Features/Demographics/Layers/layer.html";
+            this.templateUrl = "~/../bower_components/mrtest2/XDemographics/Layers/layer.html";
             this.controller = ["$scope", "leafletData", function ($scope, leafletData) {
                 $scope.applyFilter = function (filter) {
                     $scope.$parent.Apply(filter);
@@ -19,6 +19,6 @@ var app;
         };
         return Layer;
     })();
-    angular.module("app").directive("layer", function () { return Layer.getInstance(); });
+    angular.module(NameSpace).directive("layer", function () { return Layer.getInstance(); });
 })(app || (app = {}));
 //# sourceMappingURL=layer.js.map

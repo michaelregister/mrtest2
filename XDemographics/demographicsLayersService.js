@@ -1,4 +1,5 @@
 /// <reference path="../../../scripts/typings/leaflet/leaflet.d.ts" />
+/// <reference path="typings/leaflet.tileLayer.ts" />
 var app;
 (function (app) {
     "use strict";

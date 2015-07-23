@@ -6,7 +6,7 @@ var app;
     var DemographicsLayers = (function () {
         function DemographicsLayers() {
             this.restrict = "E";
-            this.templateUrl = "/app/Features/Demographics/demographicsLayers.html";
+            this.templateUrl = "~/../bower_components/mrtest2/XDemographics/demographicsLayers.html";
             this.controller = ["$scope", "demographicsLayersService", "$http", "leafletData", function ($scope, DemographicsLayersService, $http, leafletData) {
                 DemographicsLayersService.$scope = $scope;
                 function GetFilters() {
@@ -34,6 +34,6 @@ var app;
         };
         return DemographicsLayers;
     })();
-    angular.module("app").directive("demographicslayers", function () { return DemographicsLayers.getInstance(); });
+    angular.module(NameSpace).directive("demographicslayers", function () { return DemographicsLayers.getInstance(); });
 })(app || (app = {}));
 //# sourceMappingURL=DemographicsLayers.js.map

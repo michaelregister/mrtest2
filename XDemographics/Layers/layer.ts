@@ -11,8 +11,8 @@ module app {
         constructor() {
             console.log("layer constructor");
         }
-
-        templateUrl: string = "/app/Features/Demographics/Layers/layer.html";
+        
+        templateUrl: string = "~/../bower_components/mrtest2/XDemographics/Layers/layer.html";
         controller = ["$scope", "leafletData", function ($scope: ILayerScope, leafletData: any) {
             
             $scope.applyFilter = function (filter: any) {
@@ -26,5 +26,5 @@ module app {
         }
     }
 
-    angular.module("app").directive("layer", () => Layer.getInstance());
+    angular.module(NameSpace).directive("layer", () => Layer.getInstance());
 }
