@@ -1,5 +1,11 @@
 /// <reference path="../../../scripts/typings/leaflet/leaflet.d.ts" />
 /// <reference path="../../../scripts/global.ts" />
+
+angular.module("lib/Demographics/layers/layer.html", []).run(["$templateCache", function (a) {
+    a.put("lib/Demographics/layers/layer.html",
+        "<input type=checkbox ng-if=true class=js-switch ui-switch=\"{color:'#39bcf6', secondaryColor:  '#D8D8D8'}\" ng-model=filter.isApplied ng-change=applyFilter(filter)><label>{{filter.DisplayName}}</label>")
+}]);
+
 var app;
 (function (app) {
     "use strict";
