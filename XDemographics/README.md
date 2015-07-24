@@ -1,4 +1,4 @@
-# mrtest2  
+# lba.Demographics
 
 this is a demographic layer manager intended to work with a leaflet map and the xceligent geoserver/ api application.
 
