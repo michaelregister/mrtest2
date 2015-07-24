@@ -1,5 +1,4 @@
-/// <reference path="../../../scripts/typings/leaflet/leaflet.d.ts" />
-/// <reference path="typings/leaflet.tileLayer.ts" />
+/// <reference path="../../scripts/typings/leaflet/leaflet.d.ts" />
 var app;
 (function (app) {
     "use strict";
@@ -198,7 +197,7 @@ var app;
         return DemographicsLayersService;
     })();
     app.DemographicsLayersService = DemographicsLayersService;
-    angular.module(NameSpace).service("demographicsLayersService", DemographicsLayersService);
+    angular.module("lba.Demographics").service("demographicsLayersService", DemographicsLayersService);
 })(app || (app = {}));
 // angular.module('app').factory('demographicsLayersService',($rootScope,$http, leafletData, webMap, $compile, $q)
 //    => { return new demographics.DemographicsLayersService($rootScope,$http, leafletData, webMap, $compile, $q); }); 

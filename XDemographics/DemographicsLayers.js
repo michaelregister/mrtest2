@@ -1,12 +1,12 @@
-/// <reference path="../../../scripts/typings/leaflet/leaflet.d.ts" />
-/// <reference path="../../../scripts/global.ts" />
+/// <reference path="../../scripts/typings/leaflet/leaflet.d.ts" />
+/// <reference path="../../scripts/global.ts" />
 var app;
 (function (app) {
     "use strict";
     var DemographicsLayers = (function () {
         function DemographicsLayers() {
             this.restrict = "E";
-            this.templateUrl = "~/../bower_components/mrtest2/XDemographics/demographicsLayers.html";
+            this.templateUrl = "lib/Demographics/demographicsLayers.html";
             this.controller = ["$scope", "demographicsLayersService", "$http", "leafletData", function ($scope, DemographicsLayersService, $http, leafletData) {
                 DemographicsLayersService.$scope = $scope;
                 function GetFilters() {
@@ -34,6 +34,6 @@ var app;
         };
         return DemographicsLayers;
     })();
-    angular.module(NameSpace).directive("demographicslayers", function () { return DemographicsLayers.getInstance(); });
+    angular.module("lba.Demographics").directive("demographicslayers", function () { return DemographicsLayers.getInstance(); });
 })(app || (app = {}));
 //# sourceMappingURL=DemographicsLayers.js.map
