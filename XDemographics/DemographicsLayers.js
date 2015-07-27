@@ -1,6 +1,5 @@
 /// <reference path="../../scripts/typings/leaflet/leaflet.d.ts" />
 /// <reference path="../../scripts/global.ts" />
-angular.module("lib/Demographics/demographicsLayers.html", []).run(["$templateCache", function (a) { a.put("lib/Demographics/demographicsLayers.html", "<div style=height:100%;width:100%;background-color:white><accordion class=\"sidebar-tabs filterAccordion\" role=tablist><accordion-group class=filterAccordionGroup ng-repeat=\"(key,value) in dFilters.Filters track by $index\" style=\"margin-top:0 !important\"><accordion-heading class=accordion-head><div class=accordion-ico-col><span><i class=\"fa fa-home fa-2x\" ng-if=\"key == 'Housing'\"></i> <i class=\"fa fa-money fa-2x\" ng-if=\"key == 'Income'\"></i> <i class=\"fa fa-users fa-2x\" ng-if=\"key == 'Population'\"></i> </span></div><div class=accordion-htext-col ng-bind=key></div></accordion-heading><div class=col-md-12 ng-repeat=\"filter in value track by $index\"><layer></layer></div></accordion-group></accordion></div>") }]);
 var app;
 (function (app) {
     "use strict";
@@ -8,10 +7,12 @@ var app;
         function DemographicsLayers() {
             this.restrict = "E";
             this.templateUrl = "lib/Demographics/demographicsLayers.html";
-            this.controller = ["$scope", "demographicsLayersService", "$http", "leafletData", function ($scope, DemographicsLayersService, $http, leafletData) {
+            this.controller = ["$scope", "demographicsLayersService", "$http", "leafletData", "$attrs", function ($scope, DemographicsLayersService, $http, leafletData, $attrs) {
                 DemographicsLayersService.$scope = $scope;
                 function GetFilters() {
-                    $http.get(Api + "api/filter/getDemographicFilters").success(function (data) {
+                    if ($attrs.Application === undefined)
+                        $attrs.Application = "LBA";
+                    $http.get(Api + "api/filter/getDemographicFilters?" + $attrs.Application).success(function (data) {
                         console.log(data);
                         $scope.dFilters = data;
                     }).error(function (data, status) {
