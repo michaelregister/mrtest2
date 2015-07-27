@@ -41,27 +41,7 @@ var app;
                     };
                     dls.webMap.SelectedFeature = L.geoJson(data.features[0], myStyle);
                     dls.webMap.SelectedFeature.addTo(map);
-                    var details = "";
-                    for (var i = 0; i < data.features[0].properties.length; i++) {
-                        var pname = data.features[0].properties[i];
-                        if (i % 2 === 0) {
-                            details += "<h5> " + pname + ":" + data.features[0].properties[pname] + " ";
-                        }
-                        else {
-                            details += pname + ":" + data.features[0].properties[pname] + "</h5>";
-                        }
-                        i++;
-                    }
-                    if (!dls.endsWith(details, "</h5>")) {
-                        details += "</h5>";
-                    }
-                    var pop = "<div popup nonproperty=\"true\" lat=\"" + latlng.lat + "\" lng=\"" + latlng.lng + "\" GeographyType=\"" + dls.geoType + "\" geoid=\"" + data.features[0].properties.geoid + "\"  geoname=\"" + data.features[0].properties.geoname + "\" employeecount=\"" + data.features[0].properties["employee_count_" + dls.charExt] + "\" pop=\"" + data.features[0].properties["popcy_" + dls.charExt] + "\" popageover50=\"" + data.features[0].properties["pop_age_over_50_" + dls.charExt] + "\" popgrwcncy=\"" + data.features[0].properties["popgrwcncy_" + dls.charExt] + "\" popgrwcyfy=\"" + data.features[0].properties["popgrwcyfy_" + dls.charExt] + "\" medhinccy=\"" + data.features[0].properties["medhinccy_" + dls.charExt] + "\" medhuvalcy=\"" + data.features[0].properties["medhuvalcy_" + dls.charExt] + "\"></div>";
-                    var ele = angular.element(pop);
-                    // { className:"removed-item" }
-                    var newScope = dls.$scope.$new();
-                    var compiled = dls.$compile(ele)(dls.$scope);
-                    var popup1 = L.popup().setLatLng(latlng).setContent(compiled[0]);
-                    popup1.openOn(map);
+                    dls.$rootScope.$emit("ShowLayerPopup", [dls.webMap.SelectedFeature, data.features[0], map, dls, latlng]);
                 });
             };
         }
