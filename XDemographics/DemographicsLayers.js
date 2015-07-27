@@ -9,10 +9,18 @@ var app;
             this.templateUrl = "lib/Demographics/demographicsLayers.html";
             this.controller = ["$scope", "demographicsLayersService", "$http", "leafletData", "$attrs", function ($scope, DemographicsLayersService, $http, leafletData, $attrs) {
                 DemographicsLayersService.$scope = $scope;
+                $scope.HideFilters = function (value) {
+                    if (value == null) {
+                        return true;
+                    }
+                    else {
+                        return false;
+                    }
+                };
                 function GetFilters() {
                     if ($attrs.Application === undefined)
                         $attrs.Application = "LBA";
-                    $http.get(Api + "api/filter/getDemographicFilters?" + $attrs.Application).success(function (data) {
+                    $http.get(Api + "api/filter/getDemographicFilters?application=" + $attrs.Application).success(function (data) {
                         console.log(data);
                         $scope.dFilters = data;
                     }).error(function (data, status) {
