@@ -1,6 +1,13 @@
 ﻿L.TileLayer.BetterWMS = L.TileLayer.WMS.extend({
+    Popup: function (err,latlng,data)
+    {
+        console.log("Popup needs to be overridden");
+
+        showResults1(err, EVT.latlng, data);
+    },
 
     onAdd: function (map) {
+        pp = L.Util.bind(this.Popup, this);
         // Triggered when the layer is added to a map.
         //   Register a click listener, then do all the upstream WMS things
         L.TileLayer.WMS.prototype.onAdd.call(this, map);
@@ -13,6 +20,7 @@
         L.TileLayer.WMS.prototype.onRemove.call(this, map);
         map.off('click', this.getFeatureInfo, this);
     },
+  
   
     getFeatureInfo: function (evt) {
         EVT = evt;
@@ -34,6 +42,7 @@
            // }
         });
     },
+
 
     getFeatureInfoUrl: function (latlng) {
         // Construct a GetFeatureInfo request URL given a point
@@ -73,15 +82,17 @@
     }
    
 });
-var EVT = []
+var EVT = [];
+var pp;
 function parsebwm(data, status, xhr) {
-    var err = typeof data === 'string' ? null : data;
-    if (getScope().ShowPopup)
-    {
-        getScope().ShowPopup(err, EVT.latlng, data);
-    }
-    else
-    showResults1(err, EVT.latlng, data);
+    //var err = typeof data === 'string' ? null : data;
+    //if (getScope().ShowPopup)
+    //{
+    //    getScope().ShowPopup(err, EVT.latlng, data);
+    //}
+    //else
+    //showResults1(err, EVT.latlng, data);
+    pp(status,EVT.latlng, data);
 }
 
 var sp;
@@ -114,5 +125,7 @@ function showResults1(err, latlng, data) {
 
 
 L.tileLayer.betterWms = function (url, options) {
-    return new L.TileLayer.BetterWMS(url, options);
+    var bwms = new L.TileLayer.BetterWMS(url, options);
+    bwms.Popup = options.Popup;
+    return bwms;
 };

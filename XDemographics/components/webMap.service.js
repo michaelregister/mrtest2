@@ -26,6 +26,7 @@ var AppName;
                 var url = Geoserver + "/geoserver/xceligent/wms?";
                 this.webMapLayer = L.tileLayer.betterWms(url, {
                     layers: layername,
+                    Popup: popupfunction,
                     format: "image/png",
                     transparent: true,
                     version: "1.1.0",
@@ -33,7 +34,7 @@ var AppName;
                     zIndex: "999",
                     styles: style
                 });
-                this.$rootScope.ShowPopup = popupfunction;
+                // this.$rootScope.ShowPopup = popupfunction;
                 this.webMapLayer.options.tiles = true;
                 map.addLayer(this.webMapLayer);
                 this.webMapLayer.setOpacity(opacity);
