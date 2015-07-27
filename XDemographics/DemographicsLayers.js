@@ -19,9 +19,9 @@ var app;
                     }
                 };
                 function GetFilters() {
-                    if ($attrs.Application === undefined)
-                        $attrs.Application = "LBA";
-                    $http.get(Api + "api/filter/getDemographicFilters?application=" + $attrs.Application).success(function (data) {
+                    if ($attrs.application === undefined)
+                        $attrs.application = "LBA";
+                    $http.get(Api + "api/filter/getDemographicFilters?application=" + $attrs.application).success(function (data) {
                         console.log(data);
                         $scope.dFilters = data;
                     }).error(function (data, status) {
