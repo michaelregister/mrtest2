@@ -8,7 +8,16 @@ this is a demographic layer manager intended to work with a leaflet map and the 
     <leaflet defaults="defaults" center="center" height="480px" width="640px"></leaflet>
 ```
 
-to  allow selecting and showing in a popup data about a selected geographical area Attach to the "ShowLayerPopup" event using 
+**Application Specific layers**
+To get application specific layers add the application attribute to the demographiclayers directive as shown below
+```javascript
+<demographicslayers application="testapp"></demographicslayers>
+```
+this will limit the results to only the layers that are available for the application. Not entering an application will result being returned only LBA layers.
+
+**Popups**
+
+To allow selecting and showing in a popup data about a selected geographical area Attach to the "ShowLayerPopup" event using 
 ```javascript
   $rootScope.$on('ShowLayerPopup', function (event, data) {
   ...
