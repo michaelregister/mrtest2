@@ -91,7 +91,7 @@ var app;
                         }
                     }
                     var cqlfilter = "";
-                    if (filter.newRange !== undefined) {
+                    if (filter.newRange !== null) {
                         cqlfilter = dls.getstyleExt(filter) + " between " + filter.newRange[0] + " and " + filter.newRange[1];
                     }
                     dls.activeWMS = dls.webMap.getWMSLayer(map, "xceligent:" + dls.getLayerName(filter.LayerName), dls.popupfunc, .6, dls.getstyleExt(filter), cqlfilter);
