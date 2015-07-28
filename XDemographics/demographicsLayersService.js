@@ -90,8 +90,8 @@ var app;
                             dls.currentFilter.isApplied = false;
                         }
                     }
-                    var cqlfilter = "";
-                    if (filter.newRange !== null) {
+                    var cqlfilter = null;
+                    if (filter.newRange[0] != -1 && filter.newRange[1] != -1) {
                         cqlfilter = dls.getstyleExt(filter) + " between " + filter.newRange[0] + " and " + filter.newRange[1];
                     }
                     dls.activeWMS = dls.webMap.getWMSLayer(map, "xceligent:" + dls.getLayerName(filter.LayerName), dls.popupfunc, .6, dls.getstyleExt(filter), cqlfilter);

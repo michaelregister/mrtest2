@@ -24,16 +24,29 @@ var AppName;
                     }
                 }
                 var url = Geoserver + "/geoserver/xceligent/wms?";
-                this.webMapLayer = L.tileLayer.betterWms(url, {
-                    layers: layername,
-                    CQL_FILTER: cqlfilter,
-                    format: "image/png",
-                    transparent: true,
-                    version: "1.1.0",
-                    srs: "EPSG:4326",
-                    zIndex: "999",
-                    styles: style
-                });
+                if (cqlfilter != null) {
+                    this.webMapLayer = L.tileLayer.betterWms(url, {
+                        layers: layername,
+                        CQL_FILTER: cqlfilter,
+                        format: "image/png",
+                        transparent: true,
+                        version: "1.1.0",
+                        srs: "EPSG:4326",
+                        zIndex: "999",
+                        styles: style
+                    });
+                }
+                else {
+                    this.webMapLayer = L.tileLayer.betterWms(url, {
+                        layers: layername,
+                        format: "image/png",
+                        transparent: true,
+                        version: "1.1.0",
+                        srs: "EPSG:4326",
+                        zIndex: "999",
+                        styles: style
+                    });
+                }
                 this.webMapLayer.Popup = popupfunction;
                 // this.$rootScope.ShowPopup = popupfunction;
                 this.webMapLayer.options.tiles = true;
