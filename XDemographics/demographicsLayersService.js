@@ -90,7 +90,11 @@ var app;
                             dls.currentFilter.isApplied = false;
                         }
                     }
-                    dls.activeWMS = dls.webMap.getWMSLayer(map, "xceligent:" + dls.getLayerName(filter.LayerName), dls.popupfunc, .6, dls.getstyleExt(filter));
+                    var cqlfilter = "";
+                    if (filter.newRange !== undefined) {
+                        cqlfilter = dls.getstyleExt(filter) + " between " + filter.newRange[0] + " and " + filter.newRange[1];
+                    }
+                    dls.activeWMS = dls.webMap.getWMSLayer(map, "xceligent:" + dls.getLayerName(filter.LayerName), dls.popupfunc, .6, dls.getstyleExt(filter), cqlfilter);
                     dls.currentFilter = filter;
                     dls.$rootScope.$broadcast("createlegend", [dls.getstyleExt(filter), dls.getLayerName(filter.LayerName), filter.DisplayName]);
                 }

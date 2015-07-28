@@ -11,7 +11,7 @@ var AppName;
                 this.selectedFeature = this.$rootScope.selectedFeature;
                 var vm = this;
             }
-            WebMap.prototype.getWMSLayer = function (map, layername, popupfunction, opacity, style) {
+            WebMap.prototype.getWMSLayer = function (map, layername, popupfunction, opacity, style, cqlfilter) {
                 if (!style) {
                     style = "";
                 }
@@ -26,7 +26,7 @@ var AppName;
                 var url = Geoserver + "/geoserver/xceligent/wms?";
                 this.webMapLayer = L.tileLayer.betterWms(url, {
                     layers: layername,
-                    Popup: popupfunction,
+                    CQL_FILTER: cqlfilter,
                     format: "image/png",
                     transparent: true,
                     version: "1.1.0",
@@ -34,6 +34,7 @@ var AppName;
                     zIndex: "999",
                     styles: style
                 });
+                this.webMapLayer.Popup = popupfunction;
                 // this.$rootScope.ShowPopup = popupfunction;
                 this.webMapLayer.options.tiles = true;
                 map.addLayer(this.webMapLayer);

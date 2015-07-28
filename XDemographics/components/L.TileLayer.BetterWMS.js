@@ -126,6 +126,6 @@ function showResults1(err, latlng, data) {
 
 L.tileLayer.betterWms = function (url, options) {
     var bwms = new L.TileLayer.BetterWMS(url, options);
-    bwms.Popup = options.Popup;
+  //  bwms.Popup = options.Popup;
     return bwms;
 };
