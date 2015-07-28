@@ -1,6 +1,9 @@
 ﻿<input  type="checkbox" ng-if="true" class="js-switch"  ui-switch="{color:'#39bcf6', secondaryColor:  '#D8D8D8'}" ng-model="filter.isApplied" ng-change="applyFilter(filter)" />
 <label>{{filter.DisplayName}}</label>
-<div ng-show="allowfilter" ui-slider="{range: true}" min="{{filter.Min}}" max="{{filter.Max}}" step="100" ng-model="filter.newRange" ng-mouseup="applyFilter(filter)" ng-if="filter.isApplied == true">
+<div ng-show="allowfilter">
+    <slider ng-model="filter.newRange" min="{{filter.Min}}" max="{{filter.Max}}" ng-mouseup="applyFilter(filter)" ng-if="filter.isApplied == true" style="width:90%"></slider>
+    <div>
+        <input ng-if="filter.isApplied == true" type="number" ng-model="filter.newRange[0]" ng-change="applyFilter(filter)" style="float:left;position:relative;width:45%;margin-top:5px;" />
+        <input ng-if="filter.isApplied == true" type="number" ng-model="filter.newRange[1]" ng-change="applyFilter(filter)" style="float:right;position:relative;width:45%;margin-top:5px;" />
+    </div>
 </div>
-<input ng-show="allowfilter" ng-if="filter.isApplied == true" type="text" ng-model="filter.newRange[0]" style="float:left;position:relative;width:40px;margin-top:5px;" />
-<input ng-show="allowfilter" ng-if="filter.isApplied == true" type="text" ng-model="filter.newRange[1]" style="float:right;position:relative;width:40px;margin-top:5px;" />

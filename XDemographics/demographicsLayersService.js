@@ -35,7 +35,7 @@ var app;
                         }
                     }
                     var myStyle = {
-                        "color": "#ff7800",
+                        "color": "#7CBF51",
                         "weight": 5,
                         "opacity": 0.65
                     };
