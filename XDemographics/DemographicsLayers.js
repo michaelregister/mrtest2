@@ -1,10 +1,21 @@
-/// <reference path="../../scripts/typings/leaflet/leaflet.d.ts" />
-/// <reference path="../../scripts/global.ts" />
-angular.module("lib/Demographics/demographicsLayers.html", []).run(["$templateCache", function (a) {
-    a.put("lib/Demographics/demographicsLayers.html",
-        "<div style=height:100%;width:100%;background-color:white><accordion class=\"sidebar-tabs filterAccordion\" role=tablist><accordion-group class=filterAccordionGroup ng-repeat=\"(key,value) in dFilters.Filters track by $index\" style=\"margin-top:0 !important\"><accordion-heading class=accordion-head ng-hide=HideFilters(value)><div class=accordion-ico-col><span><i class=\"fa fa-home fa-2x\" ng-if=\"key == 'Housing'\"></i> <i class=\"fa fa-money fa-2x\" ng-if=\"key == 'Income'\"></i> <i class=\"fa fa-users fa-2x\" ng-if=\"key == 'Population'\"></i> <i class=\"fa fa-globe fa-2x\" ng-if=\"key == 'Geography'\"></i> <i class=\"fa fa-question fa-2x\" ng-if=\"key == 'Unknown'\"></i> </span></div><div class=accordion-htext-col ng-bind=key></div></accordion-heading><div class=col-md-12 ng-repeat=\"filter in value track by $index\"><layer></layer></div></accordion-group></accordion></div>")
-}]);
+angular.module('lib/Demographics/demographicsLayers.html', []).run(['$templateCache', function($templateCache) {
+  'use strict';
 
+  $templateCache.put('lib/Demographics/demographicsLayers.html',
+    "<div style=height:100%;width:100%;background-color:white><accordion class=\"sidebar-tabs filterAccordion\" role=tablist><accordion-group class=filterAccordionGroup ng-repeat=\"(key,value) in dFilters.Filters track by $index\" style=\"margin-top:0 !important\"><accordion-heading class=accordion-head ng-hide=HideFilters(value)><div class=accordion-ico-col><span><i class=\"fa fa-home fa-2x\" ng-if=\"key == 'Housing'\"></i> <i class=\"fa fa-money fa-2x\" ng-if=\"key == 'Income'\"></i> <i class=\"fa fa-users fa-2x\" ng-if=\"key == 'Population'\"></i> <i class=\"fa fa-globe fa-2x\" ng-if=\"key == 'Geography'\"></i> <i class=\"fa fa-question fa-2x\" ng-if=\"key == 'Unknown'\"></i></span></div><div class=accordion-htext-col ng-bind=key></div></accordion-heading><div class=col-md-12 ng-repeat=\"filter in value track by $index\"><layer></layer></div></accordion-group></accordion></div>"
+  );
+
+}]);
+;angular.module('lib/Demographics/demographicsLayers.html', []).run(['$templateCache', function($templateCache) {
+  'use strict';
+
+  $templateCache.put('lib/Demographics/demographicsLayers.html',
+    "<div style=height:100%;width:100%;background-color:white><accordion class=\"sidebar-tabs filterAccordion\" role=tablist><accordion-group class=filterAccordionGroup ng-repeat=\"(key,value) in dFilters.Filters track by $index\" style=\"margin-top:0 !important\"><accordion-heading class=accordion-head ng-hide=HideFilters(value)><div class=accordion-ico-col><span><i class=\"fa fa-home fa-2x\" ng-if=\"key == 'Housing'\"></i> <i class=\"fa fa-money fa-2x\" ng-if=\"key == 'Income'\"></i> <i class=\"fa fa-users fa-2x\" ng-if=\"key == 'Population'\"></i> <i class=\"fa fa-globe fa-2x\" ng-if=\"key == 'Geography'\"></i> <i class=\"fa fa-question fa-2x\" ng-if=\"key == 'Unknown'\"></i></span></div><div class=accordion-htext-col ng-bind=key></div></accordion-heading><div class=col-md-12 ng-repeat=\"filter in value track by $index\"><layer></layer></div></accordion-group></accordion></div>"
+  );
+
+}]);
+;/// <reference path="../../scripts/typings/leaflet/leaflet.d.ts" />
+/// <reference path="../../scripts/global.ts" />
 var app;
 (function (app) {
     "use strict";
